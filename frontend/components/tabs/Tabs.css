@@ -1,4 +1,8 @@
-/* Shared Tab Styles */
+/* ========================================
+   SHARED TAB STYLES
+   ======================================== */
+
+/* Base scrollable container styles */
 .scrollable {
   overflow-y: auto;
   scrollbar-width: thin;
@@ -11,6 +15,7 @@
   overscroll-behavior: contain; /* Prevent scroll chaining */
 }
 
+/* Webkit scrollbar styling for desktop */
 .scrollable::-webkit-scrollbar {
   width: 6px;
 }
@@ -29,6 +34,10 @@
   background: #94a3b8;
 }
 
+/* ========================================
+   RESPONSIVE SCROLLING STYLES
+   ======================================== */
+
 /* Tablet Responsive Scrolling */
 @media (max-width: 1024px) and (min-width: 769px) {
   .scrollable {
@@ -39,6 +48,7 @@
     width: 8px;
   }
   
+  /* Adjust max height for tablet screens */
   .chat-section,
   .tasks-section,
   .files-section,
@@ -54,6 +64,7 @@
     scrollbar-width: auto; /* Show scrollbar on mobile for better UX */
   }
   
+  /* Larger scrollbar for mobile touch interaction */
   .scrollable::-webkit-scrollbar {
     width: 10px;
     background: rgba(0, 0, 0, 0.1);
@@ -77,15 +88,21 @@
   }
 }
 
-/* Chat Tab Styles */
+/* ========================================
+   CHAT TAB STYLES
+   ======================================== */
+
+/* Main chat section container */
 .chat-section {
   display: flex;
+  padding: 1rem 1rem 0 1rem;
   flex-direction: column;
   height: 100%;
   max-height: calc(90vh - 200px);
   overflow: hidden; /* Prevent outer container from scrolling */
 }
 
+/* Chat messages container */
 .chat-messages {
   flex: 1;
   display: flex;
@@ -96,16 +113,19 @@
   min-height: 0; /* Critical for Firefox */
 }
 
+/* Individual chat message */
 .chat-message {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
 }
 
+/* Avatar container */
 .avatar-container {
   flex-shrink: 0;
 }
 
+/* Message avatar styling */
 .message-avatar {
   width: 40px;
   height: 40px;
@@ -119,6 +139,7 @@
   font-size: 1rem;
 }
 
+/* Message content bubble */
 .message-content {
   flex: 1;
   background-color: #f8fafc;
@@ -126,6 +147,7 @@
   padding: 1rem;
 }
 
+/* Message header with user info and timestamp */
 .message-header {
   display: flex;
   align-items: center;
@@ -133,17 +155,20 @@
   margin-bottom: 0.5rem;
 }
 
+/* Message sender name */
 .message-user {
   font-weight: 600;
   color: #1f2937;
   font-size: 0.95rem;
 }
 
+/* Message timestamp */
 .message-time {
   color: #64748b;
   font-size: 0.8rem;
 }
 
+/* Message text content */
 .message-text {
   color: #334155;
   margin: 0 0 0.75rem 0;
@@ -151,12 +176,14 @@
   font-size: 0.95rem;
 }
 
+/* Message action buttons container */
 .message-actions {
   display: flex;
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
+/* Individual message action button */
 .message-action {
   display: flex;
   align-items: center;
@@ -174,6 +201,7 @@
   color: #4f46e5;
 }
 
+/* Chat input container */
 .chat-input {
   display: flex;
   align-items: center;
@@ -184,6 +212,7 @@
   margin-top: auto;
 }
 
+/* Chat input field */
 .chat-input input {
   flex: 1;
   padding: 0.75rem 1rem;
@@ -198,6 +227,7 @@
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
 }
 
+/* Chat input buttons */
 .attach-btn,
 .send-btn {
   display: flex;
@@ -211,6 +241,7 @@
   transition: all 0.2s ease;
 }
 
+/* Attachment button */
 .attach-btn {
   background-color: #f1f5f9;
   color: #64748b;
@@ -221,6 +252,7 @@
   color: #334155;
 }
 
+/* Send button */
 .send-btn {
   background-color: #4f46e5;
   color: white;
@@ -235,7 +267,11 @@
   cursor: not-allowed;
 }
 
-/* Tasks Tab Styles */
+/* ========================================
+   TASKS TAB STYLES
+   ======================================== */
+
+/* Main tasks section container */
 .tasks-section {
   display: flex;
   flex-direction: column;
@@ -245,8 +281,7 @@
   padding: 0;
 }
 
-
-
+/* Task creation form */
 .task-form {
   padding: 1rem;
   background-color: #f8fafc;
@@ -254,60 +289,65 @@
   margin-bottom: 1rem;
 }
 
+/* Task form inputs */
 .task-form input,
 .task-form textarea {
-  width: 100%;
-  padding: 0.75rem;
+    width: 100%;
+    padding: 0.75rem;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 0.95rem;
   margin-bottom: 1rem;
   font-family: inherit;
-}
-
+  }
+  
 .task-form textarea {
   resize: vertical;
   min-height: 100px;
-}
-
+  }
+  
 .task-form input:focus,
 .task-form textarea:focus {
   outline: none;
   border-color: #4f46e5;
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
-}
-
+  }
+  
+/* Task form options grid */
 .task-form-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+    gap: 1rem;
   margin-bottom: 1rem;
-}
-
+  }
+  
+/* Form group styling */
 .form-group {
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
   gap: 0.5rem;
-}
-
+  }
+  
 .form-group label {
   font-size: 0.85rem;
   color: #64748b;
-}
-
+  }
+  
 .form-group select,
 .form-group input[type="date"] {
   padding: 0.5rem;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
   font-size: 0.9rem;
-}
-
+  }
+  
+/* Task form action buttons */
 .task-form-actions {
   display: flex;
   gap: 1rem;
-}
-
+  }
+  
+/* Save task button */
 .save-task-btn {
   padding: 0.5rem 1rem;
   background-color: #4f46e5;
@@ -318,12 +358,13 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
+  }
+  
 .save-task-btn:hover {
   background-color: #4338ca;
-}
-
+  }
+  
+/* Cancel task button */
 .cancel-task-btn {
   padding: 0.5rem 1rem;
   background-color: transparent;
@@ -334,12 +375,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
+ 
 .cancel-task-btn:hover {
   background-color: #f1f5f9;
   color: #334155;
-}
-
+  }
+  
+/* Tasks list container */
 .tasks-list {
   flex: 1;
   display: flex;
@@ -348,8 +390,9 @@
   padding: 1rem;
   overflow-y: auto;
   min-height: 0; /* Critical for Firefox */
-}
-
+  }
+  
+/* Individual task item */
 .task-item {
   display: flex;
   gap: 1rem;
@@ -358,8 +401,9 @@
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
+  }
 
+/* Task status indicator */
 .task-status {
   display: flex;
   align-items: center;
@@ -369,12 +413,13 @@
   border-radius: 50%;
   color: white;
   flex-shrink: 0;
-}
-
+} 
+/* Task content area */
 .task-content {
   flex: 1;
 }
 
+/* Task title */
 .task-content h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
@@ -387,6 +432,7 @@
   color: #64748b;
 }
 
+/* Task header with title and actions */
 .task-header {
   display: flex;
   align-items: flex-start;
@@ -395,12 +441,14 @@
   margin-bottom: 0.5rem;
 }
 
+/* Task action buttons */
 .task-actions {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
 }
 
+/* Status change button */
 .status-change-btn {
   display: flex;
   align-items: center;
@@ -421,16 +469,19 @@
   color: #374151;
 }
 
+/* Completed task styling */
 .completed-task {
   background-color: #f8fafc;
   border-color: #e2e8f0;
 }
 
+/* Task creation timestamp */
 .task-created {
   color: #9ca3af;
   font-size: 0.8rem;
 }
 
+/* Empty tasks state */
 .empty-tasks {
   display: flex;
   flex-direction: column;
@@ -461,6 +512,7 @@
   max-width: 300px;
 }
 
+/* Task description */
 .task-description {
   margin: 0 0 0.75rem 0;
   font-size: 0.9rem;
@@ -468,6 +520,7 @@
   line-height: 1.4;
 }
 
+/* Task metadata */
 .task-meta {
   display: flex;
   align-items: center;
@@ -476,6 +529,7 @@
   flex-wrap: wrap;
 }
 
+/* Task assignee and due date */
 .task-assignee,
 .task-due-date {
   display: flex;
@@ -484,11 +538,13 @@
   color: #64748b;
 }
 
+/* Task priority indicator */
 .task-priority {
   font-weight: 500;
   font-size: 0.8rem;
 }
 
+/* Delete task button */
 .delete-task-btn {
   display: flex;
   align-items: center;
@@ -506,7 +562,11 @@
   color: #dc2626;
 }
 
-/* Files Tab Styles */
+/* ========================================
+   FILES TAB STYLES
+   ======================================== */
+
+/* Main files section container */
 .files-section {
   display: flex;
   flex-direction: column;
@@ -516,6 +576,7 @@
   padding: 0;
 }
 
+/* Files header with upload button */
 .files-header {
   display: flex;
   align-items: center;
@@ -524,6 +585,7 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
+/* Upload button */
 .upload-btn {
   display: flex;
   align-items: center;
@@ -543,6 +605,7 @@
   background-color: #4338ca;
 }
 
+/* Files list container */
 .files-list {
   flex: 1;
   padding: 1rem;
@@ -551,6 +614,7 @@
   gap: 0.5rem;
 }
 
+/* Individual file item */
 .file-item {
   display: flex;
   align-items: center;
@@ -565,6 +629,7 @@
   background-color: #f1f5f9;
 }
 
+/* File icon */
 .file-icon {
   display: flex;
   align-items: center;
@@ -575,6 +640,7 @@
   flex-shrink: 0;
 }
 
+/* File information */
 .file-info {
   flex: 1;
   min-width: 0;
@@ -596,12 +662,14 @@
   color: #64748b;
 }
 
+/* File details container */
 .file-details {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
+/* File metadata */
 .file-meta {
   display: flex;
   align-items: center;
@@ -610,21 +678,23 @@
   color: #64748b;
 }
 
+/* File size */
 .file-size {
   font-weight: 500;
   color: #374151;
 }
 
+/* File uploader */
 .uploader {
   color: #6b7280;
 }
 
+/* Upload date */
 .upload-date {
   color: #9ca3af;
 }
 
-
-
+/* Status icons */
 .status-icon {
   flex-shrink: 0;
 }
@@ -646,16 +716,19 @@
   color: #f59e0b;
 }
 
+/* Status text */
 .status-text {
   font-weight: 500;
   color: #374151;
 }
 
+/* Upload time */
 .upload-time {
   color: #6b7280;
   margin-left: auto;
 }
 
+/* Empty files state */
 .empty-files {
   display: flex;
   flex-direction: column;
@@ -686,6 +759,7 @@
   max-width: 300px;
 }
 
+/* Project files header */
 .project-files-header {
   display: flex;
   align-items: center;
@@ -702,6 +776,7 @@
   color: #1f2937;
 }
 
+/* File count badge */
 .file-count {
   background-color: #f1f5f9;
   color: #64748b;
@@ -711,6 +786,7 @@
   font-weight: 500;
 }
 
+/* No project selected state */
 .no-project-selected {
   display: flex;
   flex-direction: column;
@@ -736,6 +812,7 @@
   max-width: 300px;
 }
 
+/* File action buttons */
 .download-btn,
 .delete-btn {
   display: flex;
@@ -752,6 +829,7 @@
   padding: 0;
 }
 
+/* Download button */
 .download-btn {
   background-color: #4f46e5;
   color: white;
@@ -761,8 +839,7 @@
   background-color: #4338ca;
 }
 
-
-
+/* Delete button */
 .delete-btn {
   background-color: #fee2e2;
   color: #ef4444;
@@ -773,6 +850,7 @@
   color: #dc2626;
 }
 
+/* Uploading file item */
 .uploading-item {
   border: 1px dashed #4f46e5;
   background-color: #f8fafc;
@@ -783,6 +861,7 @@
   animation: pulse 2s infinite;
 }
 
+/* Upload progress bar */
 .upload-progress {
   height: 4px;
   background-color: #e2e8f0;
@@ -798,6 +877,7 @@
   animation: progress 1.5s ease infinite;
 }
 
+/* Pulse animation for loading states */
 @keyframes pulse {
   0% {
     opacity: 1;
@@ -810,6 +890,7 @@
   }
 }
 
+/* Progress animation for upload bars */
 @keyframes progress {
   0% {
     width: 0%;
@@ -822,7 +903,11 @@
   }
 }
 
-/* Team Tab Styles */
+/* ========================================
+   TEAM TAB STYLES
+   ======================================== */
+
+/* Main team section container */
 .team-section {
   display: flex;
   flex-direction: column;
@@ -832,6 +917,7 @@
   padding: 0;
 }
 
+/* Team actions container */
 .team-actions {
   display: flex;
   align-items: center;
@@ -840,6 +926,7 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
+/* Team header with title and member count */
 .team-header {
   display: flex;
   align-items: center;
@@ -855,6 +942,7 @@
   margin-right: 1rem;
 }
 
+/* Member count badge */
 .member-count {
   background-color: #f1f5f9;
   color: #64748b;
@@ -865,6 +953,7 @@
   margin-right: auto;
 }
 
+/* Invite member button */
 .invite-btn {
   display: flex;
   align-items: center;
@@ -884,6 +973,7 @@
   background-color: #4338ca;
 }
 
+/* Team members list */
 .team-list {
   flex: 1;
   padding: 1rem;
@@ -892,6 +982,7 @@
   gap: 0.5rem;
 }
 
+/* Individual team member item */
 .member-item {
   display: flex;
   align-items: center;
@@ -906,6 +997,7 @@
   background-color: #f1f5f9;
 }
 
+/* Member avatar styling */
 .user-avatar.avatar-large.member-avatar {
   width: 40px;
   height: 40px;
@@ -925,6 +1017,7 @@
   flex-shrink: 0;
 }
 
+/* Member information */
 .member-info {
   flex: 1;
   min-width: 0;
@@ -943,6 +1036,7 @@
   color: #64748b;
 }
 
+/* Member role badge */
 .member-role {
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
@@ -953,6 +1047,7 @@
   letter-spacing: 0.05em;
 }
 
+/* Remove member button */
 .remove-member-btn {
   display: flex;
   align-items: center;
@@ -976,11 +1071,13 @@
   padding: 0.25rem 0.75rem;
 }
 
+/* Confirmation text */
 .confirm-text {
   font-size: 0.85rem;
   font-weight: 500;
 }
 
+/* Empty team state */
 .empty-team {
   display: flex;
   flex-direction: column;
@@ -1011,7 +1108,11 @@
   max-width: 300px;
 }
 
-/* Upload progress styles */
+/* ========================================
+   UPLOAD PROGRESS STYLES
+   ======================================== */
+
+/* Uploading item styling */
 .uploading-item {
   background-color: #f0f9ff !important;
   border: 1px dashed #93c5fd !important;
@@ -1021,6 +1122,7 @@
   color: #3b82f6;
 }
 
+/* Upload progress bar */
 .upload-progress {
   width: 100%;
   height: 6px;
@@ -1038,6 +1140,7 @@
   animation: progress 1.5s infinite ease-in-out;
 }
 
+/* Progress bar animation */
 @keyframes progress {
   0% {
     width: 0%;
@@ -1050,13 +1153,19 @@
   }
 }
 
+/* Disabled upload button during upload */
 .upload-btn.uploading {
   background-color: #e2e8f0;
   cursor: not-allowed;
 }
 
-/* Responsive Styles */
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+
+/* Mobile responsive styles */
 @media (max-width: 768px) {
+  /* Adjust section heights for mobile */
   .chat-section,
   .tasks-section,
   .files-section,
@@ -1064,6 +1173,7 @@
     max-height: calc(100vh - 280px); /* Adjust for smaller screens with better spacing */
   }
   
+  /* Reduce padding for mobile */
   .tasks-list,
   .files-list,
   .team-list {
@@ -1074,16 +1184,19 @@
     padding: 0.75rem 0.25rem 0.75rem 0.75rem;
   }
   
+  /* Stack task form options vertically */
   .task-form-options {
     grid-template-columns: 1fr;
   }
   
+  /* Stack task metadata vertically */
   .task-meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
   
+  /* Stack task header elements */
   .task-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1094,6 +1207,7 @@
     align-self: flex-end;
   }
   
+  /* Stack team header elements */
   .team-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1110,6 +1224,7 @@
     justify-content: center;
   }
   
+  /* Allow member items to wrap */
   .member-item {
     flex-wrap: wrap;
   }
@@ -1127,6 +1242,7 @@
     margin-left: auto;
   }
   
+  /* Stack project files header */
   .project-files-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1138,15 +1254,19 @@
   }
 }
 
+/* Small mobile responsive styles */
 @media (max-width: 640px) {
+  /* Minimal padding for small screens */
   .scrollable {
     padding-right: 0.125rem; /* Minimal padding on small screens */
   }
   
+  /* Larger scrollbar for touch interaction */
   .scrollable::-webkit-scrollbar {
     width: 12px; /* Larger scrollbar for easier touch interaction */
   }
   
+  /* Adjust heights for small screens */
   .chat-section,
   .tasks-section,
   .files-section,
@@ -1154,6 +1274,7 @@
     max-height: calc(100vh - 320px); /* More space for mobile UI elements */
   }
   
+  /* Reduce padding and gaps */
   .tasks-list,
   .files-list,
   .team-list {
@@ -1166,6 +1287,7 @@
     gap: 1rem;
   }
   
+  /* Stack chat messages vertically */
   .chat-message {
     flex-direction: column;
   }
@@ -1178,6 +1300,7 @@
     border-radius: 12px;
   }
   
+  /* Wrap file items */
   .file-item {
     flex-wrap: wrap;
     padding: 0.75rem;
@@ -1188,19 +1311,20 @@
     margin-bottom: 0.75rem;
   }
   
+  /* Stack file metadata */
   .file-meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
   
- 
-  
+  /* Position action buttons */
   .download-btn,
   .delete-btn {
     margin-left: auto;
   }
   
+  /* Reduce task and member item padding */
   .task-item {
     padding: 0.75rem;
   }

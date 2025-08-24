@@ -487,3 +487,28 @@ Updates both project team and user's participating projects
 Prevents removal of founders
 --------------------------------
 replace the 'More options' button with a delete icon for users who have sent files in #FilesTab.jsx the collaboration space.
+----------------------------------------------
+ ## Update & store local  message after type the message &  click on  after click on associate them with specific projects (dont change style sheet )
+Local Storage: Messages are stored in browser's localStorage after sending
+Project Association: Messages are linked to specific projects via projectId
+Storage Event Listening: Responds to localStorage changes across tabs
+Project Filtering: Only shows messages for the currently selected project
+Dynamic Updates: Message list updates when project selection changes
+Like System: Users can like messages (updates stored in localStorage)
+Real-time Timestamps: Shows relative time (e.g., "Just now", "2 mins", "1 hour")
+No Project Selected: Shows helpful message when no project is chosen
+No Messages: Shows project-specific message when project has no chat history
+Clear Instructions: Guides users on what to do next
+## How Should It Works:
+User types message → Message stored in input state
+User clicks send → Message object created with metadata
+Message stored locally → Saved to localStorage with project association
+Chat updates immediately → New message appears in real-time
+Messages persist → Stored locally for future sessions
+Project filtering → Only shows messages for selected project
+----------------------------------------+
+<div className="empty-chat">
+            <MessageCircle size={48} className="empty-icon" />
+            <h3>No messages yet</h3>
+            <p>Start the conversation by sending your first message</p>
+          </div>

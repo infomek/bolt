@@ -160,14 +160,14 @@ function CollaborationSpace({ onClose, activeProject = null, defaultTab = 'chat'
               // Check if all files are done
               const allCompleted = updatedFiles.every(f => f.status === 'completed');
               if (allCompleted) {
-                setIsUploading(false);
+          setIsUploading(false);
                 // Scroll to top of content to show new files
-                if (contentRef.current) {
-                  contentRef.current.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                  });
-                }
+          if (contentRef.current) {
+            contentRef.current.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
               }
             } else {
               // Update progress in localStorage
@@ -228,7 +228,7 @@ function CollaborationSpace({ onClose, activeProject = null, defaultTab = 'chat'
       <div className="selector-header">
         <label htmlFor="project-select">Your Projects</label>
         <div className="selector-buttons">
-          {isOwner && (
+          {isOwner && activeTab === 'team' && (
             <button 
               className="invite-members-btn"
               onClick={() => setShowInviteModal(true)}
