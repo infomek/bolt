@@ -98,6 +98,8 @@
   padding: 1rem 1rem 0 1rem;
   flex-direction: column;
   height: 100%;
+  width: 100%; /* Fixed width for chat area */
+  min-width: 880px; /* Minimum width to prevent shrinking */
   max-height: calc(90vh - 200px);
   overflow: hidden; /* Prevent outer container from scrolling */
 }
@@ -111,6 +113,8 @@
   padding: 1rem 0.5rem 1rem 1rem;
   overflow-y: auto;
   min-height: 0; /* Critical for Firefox */
+  width: 100%; /* Ensure full width usage */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Individual chat message */
@@ -210,6 +214,9 @@
   background-color: white;
   border-top: 1px solid #e2e8f0;
   margin-top: auto;
+  width: 100%; /* Fixed width for input area */
+  box-sizing: border-box; /* Include padding in width calculation */
+  flex-shrink: 0; /* Prevent input area from shrinking */
 }
 
 /* Chat input field */
@@ -1171,6 +1178,7 @@
   .files-section,
   .team-section {
     max-height: calc(100vh - 280px); /* Adjust for smaller screens with better spacing */
+    min-width: auto; /* Remove minimum width constraint on mobile */
   }
   
   /* Reduce padding for mobile */

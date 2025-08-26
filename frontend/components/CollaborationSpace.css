@@ -1,7 +1,8 @@
 .collaboration-modal {
   background: white;
   border-radius: 16px;
-  width: 100%;
+  width: 900px; /* Fixed width instead of flexible */
+  min-width: 900px; /* Ensure minimum width */
   max-width: 900px;
   max-height: 90vh;
   overflow: hidden;
@@ -1118,6 +1119,8 @@
 /* Mobile Responsiveness Enhancements */
 @media (max-width: 768px) {
   .collaboration-modal {
+    width: calc(100vw - 0.5rem); /* Responsive width on mobile */
+    min-width: auto; /* Remove minimum width constraint on mobile */
     max-height: 98vh; /* Maximum screen usage on mobile */
     border-radius: 8px;
     margin: 0.25rem;
@@ -1243,6 +1246,8 @@
 
 @media (max-width: 640px) {
   .collaboration-modal {
+    width: calc(100vw - 0.25rem); /* Full width on small screens */
+    min-width: auto; /* Remove minimum width constraint */
     margin: 0.125rem;
     border-radius: 6px;
   }
