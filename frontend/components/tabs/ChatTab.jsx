@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Send, Paperclip, ThumbsUp } from 'lucide-react';
+import { Send, Paperclip, ThumbsUp, MessageCircle } from 'lucide-react';
 import UserAvatar from '../UserAvatar';
 import { useAuth } from '../../context/AuthContext';
 import './Tabs.css';
@@ -18,21 +18,8 @@ function ChatTab({ project }) {
 
       if (storedMessages) {
         setMessages(JSON.parse(storedMessages));
-      } else {
-        // Sample data for demonstration (only if no stored messages)
-        const sampleMessages = [
-          {
-            id: 1,
-            user: 'Priva Sharma',
-            message: 'Lorem ipsum dolor sit amet, coetur adipiscing elit ut aliquam,',
-            timestamp: '2 mins',
-            avatar: '/api/placeholder/32/32',
-            likes: 15,
-            replies: 6
-          }
-        ];
-        setMessages(sampleMessages);
       }
+      // Removed hardcoded sample messages
     };
 
     loadMessages();
@@ -102,33 +89,41 @@ function ChatTab({ project }) {
   return (
     <div className="chat-section">
       <div className="chat-messages scrollable">
-        {messages.map((msg) => (
-          <div key={msg.id} className="chat-message">
-            <div className="avatar-container">
-              <UserAvatar user={{ name: msg.user }} size="small" />
-            </div>
-            <div className="message-content">
-              <div className="message-header">
-                <span className="message-user">{msg.user}</span>
-                <span className="message-time">{msg.timestamp}</span>
-              </div>
-              <p className="message-text">{msg.message}</p>
-              <div className="message-actions">
-                <button
-                  className="message-action"
-                  onClick={() => handleLikeMessage(msg.id)}
-                >
-                  <ThumbsUp size={16} />
-                  <span>{msg.likes} Like</span>
-                </button>
-                {/* <button className="message-action">
-                  <MessageCircle size={16} />
-                  <span>{msg.replies} Replies</span>
-                </button> */}
-              </div>
-            </div>
+        {messages.length === 0 ? (
+          <div className="empty-chat-state">
+            <MessageCircle size={48} className="empty-icon" />
+            <h3>No messages yet</h3>
+            <p>Start the conversation by sending your first message</p>
           </div>
-        ))}
+        ) : (
+          messages.map((msg) => (
+            <div key={msg.id} className="chat-message">
+              <div className="avatar-container">
+                <UserAvatar user={{ name: msg.user }} size="small" />
+              </div>
+              <div className="message-content">
+                <div className="message-header">
+                  <span className="message-user">{msg.user}</span>
+                  <span className="message-time">{msg.timestamp}</span>
+                </div>
+                <p className="message-text">{msg.message}</p>
+                <div className="message-actions">
+                  <button
+                    className="message-action"
+                    onClick={() => handleLikeMessage(msg.id)}
+                  >
+                    <ThumbsUp size={16} />
+                    <span>{msg.likes} Like</span>
+                  </button>
+                  {/* <button className="message-action">
+                    <MessageCircle size={16} />
+                    <span>{msg.replies} Replies</span>
+                  </button> */}
+                </div>
+              </div>
+            </div>
+          ))
+        )}
         <div ref={messagesEndRef} />
       </div>
 
