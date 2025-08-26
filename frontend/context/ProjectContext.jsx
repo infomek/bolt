@@ -44,6 +44,9 @@ export const ProjectProvider = ({ children }) => {
         location: 'San Francisco, CA',
         bio: 'Passionate frontend developer with 3+ years of experience building responsive web applications.',
         skills: ['React', 'TypeScript', 'JavaScript', 'CSS', 'HTML5', 'Redux'],
+        githubUrl: 'https://github.com/johnsmith',
+        linkedinUrl: 'https://linkedin.com/in/johnsmith-dev',
+        portfolioUrl: 'https://johnsmith.dev',
         experiences: [
           {
             title: 'Frontend Developer',
@@ -84,6 +87,9 @@ export const ProjectProvider = ({ children }) => {
         location: 'New York, NY',
         bio: 'Creative UI/UX designer with a passion for creating intuitive user experiences.',
         skills: ['Figma', 'UI/UX Design', 'Wireframing', 'Prototyping', 'User Research'],
+        githubUrl: 'https://github.com/emilydavis',
+        linkedinUrl: 'https://linkedin.com/in/emilydavis-ux',
+        portfolioUrl: 'https://emilydavis.design',
         experiences: [
           {
             title: 'Senior UI/UX Designer',

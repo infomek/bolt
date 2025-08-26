@@ -103,7 +103,10 @@ function ProjectModal({ project, onClose }) {
         bio: user.bio || '',
         skills: user.skills || [],
         experiences: user.experience || [],
-        education: user.education || []
+        education: user.education || [],
+        githubUrl: user.githubUrl || '',
+        linkedinUrl: user.linkedinUrl || '',
+        portfolioUrl: user.portfolioUrl || ''
       }
     });
 

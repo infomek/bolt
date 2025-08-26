@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Send, Paperclip, ThumbsUp, MessageCircle } from 'lucide-react';
+import { Send, Smile, ThumbsUp, MessageCircle } from 'lucide-react';
+import EmojiPicker from 'emoji-picker-react';
 import UserAvatar from '../UserAvatar';
 import { useAuth } from '../../context/AuthContext';
 import './Tabs.css';
@@ -7,7 +8,9 @@ import './Tabs.css';
 function ChatTab({ project }) {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const messagesEndRef = useRef(null);
+  const emojiPickerRef = useRef(null);
   const { user } = useAuth();
 
   // Load messages from localStorage on component mount
@@ -86,6 +89,26 @@ function ChatTab({ project }) {
     );
   };
 
+  // Handle emoji selection
+  const onEmojiClick = (emojiObject) => {
+    setMessage(prevMessage => prevMessage + emojiObject.emoji);
+    setShowEmojiPicker(false);
+  };
+
+  // Close emoji picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+        setShowEmojiPicker(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="chat-section">
       <div className="chat-messages scrollable">
@@ -128,9 +151,28 @@ function ChatTab({ project }) {
       </div>
 
       <form className="chat-input" onSubmit={handleSendMessage}>
-        <button type="button" className="attach-btn">
-          <Paperclip size={20} />
-        </button>
+        <div className="emoji-container" ref={emojiPickerRef}>
+          <button 
+            type="button" 
+            className="emoji-btn"
+            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+          >
+            <Smile size={20} />
+          </button>
+          {showEmojiPicker && (
+            <div className="emoji-picker-container">
+              <EmojiPicker
+                onEmojiClick={onEmojiClick}
+                searchPlaceholder="Search emojis..."
+                width={350}
+                height={400}
+                previewConfig={{
+                  showPreview: false
+                }}
+              />
+            </div>
+          )}
+        </div>
         <input
           type="text"
           placeholder="Type a message..."
