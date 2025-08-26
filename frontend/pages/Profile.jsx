@@ -540,13 +540,13 @@ function Profile() {
           <Briefcase size={24} />
           <span>Projects</span>
         </div>
-        <div
+        {/* <div
           className={`mobile-nav-item ${activeTab === 'achievements' ? 'active' : ''}`}
           onClick={() => setActiveTab('achievements')}
         >
           <Award size={24} />
           <span>Achievements</span>
-        </div>
+        </div> */}
         <div
           className={`mobile-nav-item ${activeTab === 'settings' ? 'active' : ''}`}
           onClick={() => setActiveTab('settings')}
@@ -572,13 +572,13 @@ function Profile() {
           <Briefcase size={18} />
           Projects
         </button>
-        <button
+        {/* <button
           className={`tab-button ${activeTab === 'achievements' ? 'active' : ''}`}
           onClick={() => setActiveTab('achievements')}
         >
           <Award size={18} />
           Achievements
-        </button>
+        </button> */}
         <button
           className={`tab-button ${activeTab === 'settings' ? 'active' : ''}`}
           onClick={() => setActiveTab('settings')}
@@ -592,7 +592,7 @@ function Profile() {
       <div className="tab-content">
         {activeTab === 'overview' && renderOverview()}
         {activeTab === 'projects' && renderProjects()}
-        {activeTab === 'achievements' && renderAchievements()}
+        {/* {activeTab === 'achievements' && renderAchievements()} */}
         {activeTab === 'settings' && renderSettings()}
       </div>
 
@@ -935,6 +935,8 @@ function Profile() {
 
   // Render achievements tab content
   // function: renderAchievements, if you want to fetch from API, do it here
+  // COMMENTED OUT - Achievements tab removed
+  /*
   function renderAchievements() {
     return (
       <div className="achievements-content">
@@ -961,6 +963,7 @@ function Profile() {
       </div>
     );
   }
+  */
 
   // Render settings tab content
   // function: renderSettings, add API calls for privacy/notification settings as needed
