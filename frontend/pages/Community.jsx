@@ -493,7 +493,7 @@ function Community() {
       if (response.ok) {
         const result = await response.json();
         const userProfile = result.data;
-        
+
         // Transform backend data to match ProfileModal expected format
         const profileData = {
           ...userProfile,
@@ -510,7 +510,7 @@ function Community() {
           phone: userProfile.phone || '',
           website: userProfile.website || ''
         };
-        
+
         setSelectedMember(profileData);
         setShowProfileModal(true);
         return;
@@ -539,13 +539,13 @@ function Community() {
         education: [],
         skills: []
       };
-      
+
       setSelectedMember(fallbackProfile);
       setShowProfileModal(true);
-      
+
     } catch (error) {
       console.error('Error fetching user profile:', error);
-      
+
       // Error fallback
       const errorProfile = {
         id: memberId,
@@ -556,7 +556,7 @@ function Community() {
         education: [],
         skills: []
       };
-      
+
       setSelectedMember(errorProfile);
       setShowProfileModal(true);
     }
@@ -640,10 +640,12 @@ function Community() {
           <h1 style={{ color: 'white' }}>Community</h1>
           <p style={{ color: 'white' }}>Connect, share, and grow with fellow developers</p>
         </div>
-        <button className="new-post-btn" onClick={() => setShowCreatePostModal(true)}>
-          <MessageSquare size={20} />
-          New Post
-        </button>
+        {user && (
+          <button className="new-post-btn" onClick={() => setShowCreatePostModal(true)}>
+            <MessageSquare size={20} />
+            New Post
+          </button>
+        )}
       </div>
 
       <div className="community-filters">
@@ -774,7 +776,7 @@ function Community() {
                 )}
               </div>
               <div className="post-actions">
-                <button 
+                <button
                   className={`post-action-btn ${expandedComments.has(post.id) ? 'active' : ''}`}
                   onClick={() => toggleComments(post.id)}
                 >
@@ -821,7 +823,7 @@ function Community() {
                       ))
                     )}
                   </div>
-                  
+
                   {/* Comment Input */}
                   <div className="comment-input">
                     <UserAvatar user={{ name: user?.name || 'Guest' }} size="small" />
