@@ -197,27 +197,28 @@ export const ProjectProvider = ({ children }) => {
         createdAt: "2023-12-05",
         ownerId: '7'
       },
-      // Other existing projects
-      // {
-      //   id: 4,
-      //   title: "AI-Powered Healthcare Assistant",
-      //   description: "Building an intelligent healthcare assistant that helps patients manage their health tutors adaptive learning experiences....",
-      //   stage: "Ideation Stage",
-      //   industry: "Healthcare",
-      //   requiredSkills: ["React", "Python", "Machine Learning"],
-      //   teamMembers: [
-      //     { id: 1, name: "Anita Patel", role: "Founder", avatar: "/api/placeholder/40/40" },
-      //     { id: 2, name: "Mike Chen", role: "CTO", avatar: "/api/placeholder/40/40" }
-      //   ],
-      //   openPositions: [
-      //     { role: "Frontend Developer", skills: ["React", "TypeScript"], isPaid: true },
-      //     { role: "ML Engineer", skills: ["Python", "TensorFlow"], isPaid: true }
-      //   ],
-      //   funding: "₹25,00,000",
-      //   applications: 12,
-      //   createdAt: "2024-01-15",
-      //   ownerId: '1'
-      // },
+      
+      // User-2's project for testing notifications
+      {
+        id: 'user2-project1',
+        title: "User-2's Test Project",
+        description: "A test project owned by User-2 to verify notification functionality when users apply to positions.",
+        stage: "MVP Development",
+        industry: "Technology",
+        requiredSkills: ["React", "Node.js", "JavaScript"],
+        teamMembers: [
+          { id: '2', name: "User-2", role: "Founder", avatar: "/api/placeholder/40/40" }
+        ],
+        openPositions: [
+          { role: "Frontend Developer", skills: ["React", "JavaScript", "CSS"], isPaid: true },
+          { role: "Backend Developer", skills: ["Node.js", "Express", "MongoDB"], isPaid: false }
+        ],
+        funding: "₹20,00,000",
+        applications: 0,
+        createdAt: "2024-02-01",
+        ownerId: '2'
+      },
+      
       {
         id: 5,
         title: "Sustainable Fashion Marketplace",
@@ -339,66 +340,9 @@ export const ProjectProvider = ({ children }) => {
         createdAt: "2024-01-03",
         ownerId: '13'
       },
-      {
-        id: 11,
-        title: "Sustainable Agriculture Platform",
-        description: "Connecting farmers with technology solutions for sustainable farming practices, crop monitoring, and direct market access.",
-        stage: "Ideation Stage",
-        industry: "Agriculture",
-        requiredSkills: ["IoT", "Mobile Development", "Data Analytics", "Agriculture"],
-        teamMembers: [
-          { id: 15, name: "Karan Patel", role: "Founder", avatar: "/api/placeholder/40/40" }
-        ],
-        openPositions: [
-          { role: "IoT Developer", skills: ["Arduino", "Sensors", "Embedded Systems"], isPaid: false },
-          { role: "Mobile Developer", skills: ["React Native"], isPaid: true },
-          { role: "Agriculture Expert", skills: ["Farming", "Sustainability"], isPaid: false }
-        ],
-        funding: "₹20,00,000",
-        applications: 7,
-        createdAt: "2024-01-28",
-        ownerId: '15'
-      },
-      {
-        id: 12,
-        title: "Electric Vehicle Charging Network",
-        description: "Building a nationwide network of smart EV charging stations with real-time availability tracking and seamless payment.",
-        stage: "MVP Development",
-        industry: "Automotive",
-        requiredSkills: ["IoT", "Mobile Development", "Payment Integration", "Maps API"],
-        teamMembers: [
-          { id: 16, name: "Rohan Sharma", role: "Founder", avatar: "/api/placeholder/40/40" },
-          { id: 17, name: "Aditya Verma", role: "Hardware Engineer", avatar: "/api/placeholder/40/40" }
-        ],
-        openPositions: [
-          { role: "Backend Developer", skills: ["Node.js", "MongoDB"], isPaid: true },
-          { role: "Mobile Developer", skills: ["React Native", "Maps Integration"], isPaid: true }
-        ],
-        funding: "₹60,00,000",
-        applications: 22,
-        createdAt: "2023-12-20",
-        ownerId: '16'
-      },
-      // User-2's project for testing notifications
-      {
-        id: 'user2-project1',
-        title: "User-2's Test Project",
-        description: "A test project owned by User-2 to verify notification functionality when users apply to positions.",
-        stage: "MVP Development",
-        industry: "Technology",
-        requiredSkills: ["React", "Node.js", "JavaScript"],
-        teamMembers: [
-          { id: '2', name: "User-2", role: "Founder", avatar: "/api/placeholder/40/40" }
-        ],
-        openPositions: [
-          { role: "Frontend Developer", skills: ["React", "JavaScript", "CSS"], isPaid: true },
-          { role: "Backend Developer", skills: ["Node.js", "Express", "MongoDB"], isPaid: false }
-        ],
-        funding: "₹20,00,000",
-        applications: 0,
-        createdAt: "2024-02-01",
-        ownerId: '2'
-      }
+      
+      
+      
     ];
 
     // Create user project mapping
