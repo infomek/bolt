@@ -309,6 +309,7 @@ function ProjectModal({ project, onClose }) {
         <div className="modal-header">
           <div className="project-header-info">
             <h2>{project.title}</h2>
+            {/* Display the current project stage as a badge */}
             <span className="project-stage-badge">{project.stage}</span>
           </div>
           <button className="close-btn" onClick={onClose}>
